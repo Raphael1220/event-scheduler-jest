@@ -66,5 +66,4 @@ export default class EventController {
         let event = this.eventService.getShortestEvent();
         res.send(this.eventSerializer.serialize(event))
     }
-
 }

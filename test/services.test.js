@@ -11,7 +11,7 @@ describe("Event Service",()=> {
         EventRepository.mockClear();
         EventRepository.mockImplementation(() => {
             return {
-                getAll: () => fakeEvents.slice()
+                getAll: () => fakeEvents.slice(),
             }
         });
     });
@@ -31,5 +31,31 @@ describe("Event Service",()=> {
     test('getEvents shall return 4 result', async () => {
         let eventService = new EventService(new EventRepository());
         expect(eventService.getEvents().length).toBe(3);
+    })
+
+    test('getFirstEvent shall return first event', async () => {
+        let eventService = new EventService(new EventRepository());
+        const currentDate = new Date();
+        const firstEvent = eventService.getFirstEvent(fakeEvents, currentDate);
+        expect(firstEvent).toEqual(fakeEvents[2]);
+    })
+
+    test('getLastEvent shall return last event', async () => {
+        let eventService = new EventService(new EventRepository());
+        const currentDate = new Date();
+        const lastEvent = eventService.getLastEvent(fakeEvents, currentDate);
+        expect(lastEvent).toEqual(fakeEvents[2]);
+    })
+
+    test('getLongestEvent shall return longest event', async () => {
+        let eventService = new EventService(new EventRepository());
+        const longestEvent = eventService.getLongestEvent(fakeEvents);
+        expect(longestEvent).toEqual(fakeEvents[2]);
+    })
+
+    test('getShortestEvent shall return shortest event', async () => {
+        let eventService = new EventService(new EventRepository());
+        const shortestEvent = eventService.getShortestEvent(fakeEvents);
+        expect(shortestEvent).toEqual(fakeEvents[0]);
     })
 });

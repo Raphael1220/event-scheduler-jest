@@ -28,34 +28,34 @@ export default class EventService {
 
     /**
      * Get the first upcomming event
-     * @return {null | Event}
+     * @return {Event[]}
      */
-    getFirstEvent() {
-        return null; //TODO
+    getFirstEvent(table) {
+        return this._eventRepository.getFirst();
     }
 
     /**
      * Get the last upcomming event
-     * @return {null | Event}
+     * @return {Event[]}
      */
     getLastEvent() {
-        return null; //TODO
+        return this._eventRepository.getLast();
     }
 
     /**
      * Get the longest event
-     * @return {null | Event}
+     * @return {Event[]}
      */
     getLongestEvent() {
-        return null; //TODO
+        return this._eventRepository.getLongest();
     }
 
     /**
      * get the shortest event
-     * @return {null | Event}
+     * @return {Event[]}
      */
     getShortestEvent() {
-        return null; //TODO
+        return this._eventRepository.getShortest();
     }
 
     // A implementer en TDD

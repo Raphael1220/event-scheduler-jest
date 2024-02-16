@@ -22,10 +22,22 @@ export default class EventRepository {
     /**
      * Add a new event
      * return true if succeed
-     * @return boolean
+     * @return Event[]
      */
-    add(event){
-        return false; //TODO
+    getFirst(){
+        return []; //TODO
+    }
+
+    getLast(){
+        return []; //TODO
+    }
+
+    getLongest(){
+        return []; //TODO
+    }
+
+    getShortest(){
+        return []; //TODO
     }
 }
 
@@ -36,7 +48,6 @@ export class InMemoryEventRepository extends EventRepository{
         super(null);
         this._events = events;
     }
-
 
     getAll() {
         return this._events.slice();
